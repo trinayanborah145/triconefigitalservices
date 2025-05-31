@@ -107,12 +107,16 @@ const HeroSection: React.FC = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
-            <button className="bg-gradient-animated hover-effect text-white px-8 py-4 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full sm:w-auto">
-              Explore Our Services
-            </button>
-            <button className="border border-white/20 hover:border-neon-cyan hover-effect text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-white/5 w-full sm:w-auto">
-              Learn More
-            </button>
+            <a href="#services" className="w-full sm:w-auto">
+              <button className="bg-gradient-animated hover-effect text-white px-8 py-4 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full">
+                Explore Our Services
+              </button>
+            </a>
+            <a href="/about" className="w-full sm:w-auto">
+              <button className="w-full border border-white/20 hover:border-neon-cyan hover-effect text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-white/5">
+                Learn More
+              </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

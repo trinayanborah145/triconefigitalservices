@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, MessageSquare, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { MessageSquare, Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If we're not on the home page, navigate there first
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,31 +82,51 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <Monitor className="h-8 w-8 text-neon-cyan" />
+        <Link 
+          to="/" 
+          className="flex items-center gap-3 hover-effect"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <img 
+            src="/images/TRICONE (1).jpg" 
+            alt="Tricone Digital Services Logo" 
+            className="h-10 w-10 rounded-full object-cover"
+          />
           <h1 className="text-2xl font-display font-bold">
             <span className="text-gradient">Tricone</span>
           </h1>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['Home', 'Services', 'About', 'Stats', 'Testimonials', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          {[
+            { name: 'Home', id: 'home' },
+            { name: 'Services', id: 'services' },
+            { name: 'About', id: 'about' },
+            { name: 'Stats', id: 'stats' },
+            { name: 'Testimonials', id: 'testimonials' },
+            { name: 'Contact', id: 'contact' }
+          ].map((item) => (
+            <Link 
+              key={item.id} 
+              to={`#${item.id}`} 
               className="text-white/80 hover:text-white hover-effect font-medium transition-colors duration-300 relative group"
+              onClick={() => scrollToSection(item.id)}
             >
-              {item}
+              {item.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </Link>
           ))}
-          <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-2 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+          <Link 
+            to="#contact" 
+            className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-2 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg inline-block"
+            onClick={() => scrollToSection('contact')}
+          >
             <span className="flex items-center gap-2">
               <MessageSquare size={16} />
               Get in Touch
             </span>
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -121,18 +160,30 @@ const Header: React.FC = () => {
               </button>
             </div>
             <nav className="flex flex-col space-y-8">
-              {['Home', 'Services', 'About', 'Stats', 'Testimonials', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-xl text-white/80 hover:text-white hover-effect font-medium transition-colors duration-300 relative group"
+              {[
+                { name: 'Home', id: 'home' },
+                { name: 'Services', id: 'services' },
+                { name: 'About', id: 'about' },
+                { name: 'Stats', id: 'stats' },
+                { name: 'Testimonials', id: 'testimonials' },
+                { name: 'Contact', id: 'contact' }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-xl text-white/80 hover:text-white hover-effect font-medium transition-colors duration-300 relative group bg-transparent border-none cursor-pointer p-0 text-left"
                 >
-                  {item}
+                  {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-magenta group-hover:w-full transition-all duration-300"></span>
-                </a>
+                </button>
               ))}
-              <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-3 rounded-full font-semibold transition-transform duration-300 hover:scale-105 mt-4">
+              <button
+                onClick={() => {
+                  scrollToSection('contact');
+                  setIsMenuOpen(false);
+                }}
+                className="w-full bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-3 rounded-full font-semibold transition-transform duration-300 hover:scale-105 mt-4 text-center"
+              >
                 <span className="flex items-center gap-2 justify-center">
                   <MessageSquare size={20} />
                   Get in Touch

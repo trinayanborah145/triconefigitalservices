@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -18,7 +19,11 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <Monitor className="h-8 w-8 text-neon-cyan" />
+              <img 
+                src="/images/TRICONE (1).jpg" 
+                alt="Tricone Digital Services Logo" 
+                className="h-12 w-12 rounded-full object-cover"
+              />
               <h3 className="text-2xl font-display font-bold">
                 <span className="text-gradient">Tricone</span>
               </h3>
@@ -47,13 +52,19 @@ const Footer: React.FC = () => {
           >
             <h3 className="text-xl font-display font-bold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-4">
-              {['Home', 'Services', 'About Us', 'Projects', 'Testimonials'].map((item, index) => (
+              {[
+                { name: 'Home', href: '#home' },
+                { name: 'Services', href: '#services' },
+                { name: 'About Us', href: '#about' },
+                { name: 'Projects', href: '#projects' },
+                { name: 'Testimonials', href: '#testimonials' }
+              ].map((item, index) => (
                 <li key={index}>
                   <a 
-                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    href={item.href}
                     className="text-white/70 hover:text-neon-magenta hover-effect transition-colors duration-300 flex items-center"
                   >
-                    <span className="mr-2">›</span> {item}
+                    <span className="mr-2">›</span> {item.name}
                   </a>
                 </li>
               ))}
@@ -69,18 +80,18 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-display font-bold mb-6 text-white">Our Services</h3>
             <ul className="space-y-4">
               {[
-                'Web Design & Development',
-                'Social Media Automation',
-                'Lead Generation',
-                'Funnel Marketing',
-                'Digital Strategy'
+                { name: 'CRM Automation', id: 'crm-automation' },
+                { name: 'Marketing Automation', id: 'marketing-automation' },
+                { name: 'Sales Automation', id: 'sales-automation' },
+                { name: 'Customer Support Automation', id: 'support-automation' },
+                { name: 'Workflow Automation', id: 'workflow-automation' }
               ].map((item, index) => (
                 <li key={index}>
                   <a 
-                    href="#services"
+                    href={`#services#${item.id}`}
                     className="text-white/70 hover:text-neon-yellow hover-effect transition-colors duration-300 flex items-center"
                   >
-                    <span className="mr-2">›</span> {item}
+                    <span className="mr-2">›</span> {item.name}
                   </a>
                 </li>
               ))}
@@ -98,26 +109,40 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-neon-cyan mr-3 mt-1 flex-shrink-0" />
                 <span className="text-white/70">
-                  123 Innovation Drive, Tech City, TC 10101
+                  Jorhat, Assam, 785001
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 text-neon-magenta mr-3 flex-shrink-0" />
-                <span className="text-white/70">
-                  +1 (555) 123-4567
-                </span>
+                <a href="tel:+918474076850" className="text-white/70 hover:text-neon-magenta transition-colors duration-300">
+                  +91 84740 76850
+                </a>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-neon-yellow mr-3 flex-shrink-0" />
-                <span className="text-white/70">
-                  info@triconedigital.com
-                </span>
+                <a href="mailto:triconedigitalservices@gmail.com" className="text-white/70 hover:text-neon-yellow transition-colors duration-300">
+                  triconedigitalservices@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center">
+                <MessageCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                <a 
+                  href="https://wa.me/918474076850" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-green-400 transition-colors duration-300 flex items-center"
+                >
+                  Chat on WhatsApp
+                </a>
               </li>
             </ul>
             <div className="mt-6">
-              <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-3 rounded-full font-semibold transition-transform duration-300 hover:scale-105 w-full">
+              <Link 
+                to="/contact" 
+                className="block bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-3 rounded-full font-semibold transition-transform duration-300 hover:scale-105 text-center"
+              >
                 Send Message
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { getServiceById, getAllServices } from '../data/services';
 import ServiceDetails from '../components/ServiceDetails';
-import HomeLayout from '../layouts/HomeLayout';
 import { useEffect } from 'react';
+import MainLayout from '../layouts/MainLayout';
 
 const ServiceDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,7 +22,7 @@ const ServiceDetailsPage = () => {
 
   if (!service) {
     return (
-      <HomeLayout>
+      <MainLayout>
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-4">Service Not Found</h2>
@@ -40,16 +40,12 @@ const ServiceDetailsPage = () => {
             </div>
           </div>
         </div>
-      </HomeLayout>
+      </MainLayout>
     );
   }
 
 
-  return (
-    <HomeLayout>
-      <ServiceDetails service={service} />
-    </HomeLayout>
-  );
+  return <ServiceDetails service={service} />;
 };
 
 export default ServiceDetailsPage;

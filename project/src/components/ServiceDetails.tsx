@@ -269,13 +269,21 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
             <p className="text-xl text-white/80 mb-10">Schedule a free consultation with our automation experts and discover how we can streamline your workflows.</p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center">
+              <a 
+                href={`https://wa.me/918474076850?text=Hi%20Tricone%20Team,%0A%0AMy%20name%20is%20[Your%20Name].%20I%20would%20like%20to%20schedule%20a%20free%20consultation%20about%20your%20${encodeURIComponent(service.title)}%20services.%0A%0APreferred%20time%20for%20call:%20[Your%20Preferred%20Date%20%26%20Time]%0A%0ALooking%20forward%20to%20hearing%20from%20you!`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
+              >
                 Book a Free Call
                 <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-              <button className="border-2 border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:bg-white/5 flex items-center justify-center">
+              </a>
+              <a 
+                href="#contact"
+                className="border-2 border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:bg-white/5 flex items-center justify-center"
+              >
                 Contact Us
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

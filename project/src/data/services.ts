@@ -12,8 +12,7 @@ import {
   Share2,
   Calendar,
   RefreshCw,
-  Link,
-  Clock
+  Link
 } from 'lucide-react';
 
 export interface Service {
