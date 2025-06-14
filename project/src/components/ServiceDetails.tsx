@@ -120,9 +120,6 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
             <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
               Book a Free Consultation
             </button>
-            <button className="border-2 border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:bg-white/5">
-              View Case Studies
-            </button>
           </motion.div>
         </div>
       </motion.section>
