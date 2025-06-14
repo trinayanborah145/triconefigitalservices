@@ -275,12 +275,7 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
                 Book a Free Call
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
-              <a 
-                href="#contact"
-                className="border-2 border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:bg-white/5 flex items-center justify-center"
-              >
-                Contact Us
-              </a>
+
             </div>
           </motion.div>
         </div>
