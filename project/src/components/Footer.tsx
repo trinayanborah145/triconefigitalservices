@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -32,15 +32,24 @@ const Footer: React.FC = () => {
               Transforming Your Digital Future with  Tricone. We create cutting-edge solutions that empower businesses in the digital landscape.
             </p>
             <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
-                <a 
-                  key={index}
-                  href="#" 
-                  className="hover-effect w-10 h-10 rounded-full flex items-center justify-center border border-white/20 hover:border-neon-cyan transition-colors duration-300"
-                >
-                  <Icon size={18} className="text-white/70 hover:text-neon-cyan transition-colors duration-300" />
-                </a>
-              ))}
+              <a 
+                href="mailto:triconedigitalservices@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover-effect w-10 h-10 rounded-full flex items-center justify-center border border-white/20 hover:border-neon-cyan transition-colors duration-300"
+                title="Email Us"
+              >
+                <Mail size={18} className="text-white/70 hover:text-neon-cyan transition-colors duration-300" />
+              </a>
+              <a 
+                href="https://wa.me/918474076850"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover-effect w-10 h-10 rounded-full flex items-center justify-center border border-white/20 hover:border-green-400 transition-colors duration-300"
+                title="Chat on WhatsApp"
+              >
+                <MessageCircle size={18} className="text-white/70 hover:text-green-400 transition-colors duration-300" />
+              </a>
             </div>
           </motion.div>
 
@@ -56,7 +65,7 @@ const Footer: React.FC = () => {
                 { name: 'Home', href: '#home' },
                 { name: 'Services', href: '#services' },
                 { name: 'About Us', href: '#about' },
-                { name: 'Projects', href: '#projects' },
+                
                 { name: 'Testimonials', href: '#testimonials' }
               ].map((item, index) => (
                 <li key={index}>
@@ -80,16 +89,22 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-display font-bold mb-6 text-white">Our Services</h3>
             <ul className="space-y-4">
               {[
+                { name: 'Web Development', id: 'web-development' },
                 { name: 'CRM Automation', id: 'crm-automation' },
-                { name: 'Marketing Automation', id: 'marketing-automation' },
-                { name: 'Sales Automation', id: 'sales-automation' },
-                { name: 'Customer Support Automation', id: 'support-automation' },
-                { name: 'Workflow Automation', id: 'workflow-automation' }
+                { name: 'Social Media Automation', id: 'social-media-automation' },
+                { name: 'End to End Business Automation', id: 'end-to-end-business-automation' }
               ].map((item, index) => (
                 <li key={index}>
                   <a 
-                    href={`#services#${item.id}`}
-                    className="text-white/70 hover:text-neon-yellow hover-effect transition-colors duration-300 flex items-center"
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById(item.id);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="text-white/70 hover:text-neon-yellow hover-effect transition-colors duration-300 flex items-center cursor-pointer"
                   >
                     <span className="mr-2">›</span> {item.name}
                   </a>

@@ -5,24 +5,24 @@ import CounterAnimation from '../components/CounterAnimation';
 const stats = [
   { value: 10, suffix: '+', label: 'Projects Completed', icon: <Rocket className="w-8 h-8" />, duration: 2 },
   { value: 100, suffix: '%', label: 'Client Satisfaction', icon: <Star className="w-8 h-8" />, duration: 2.5 },
-  { value: 50, suffix: '+', label: 'Happy Clients', icon: <Users className="w-8 h-8" />, duration: 2.2 },
-  { value: 5, suffix: '+', label: 'Years Experience', icon: <Trophy className="w-8 h-8" />, duration: 1.8 },
+  { value: 8, suffix: '+', label: 'Happy Clients', icon: <Users className="w-8 h-8" />, duration: 2.2 },
+  { value: 1, suffix: '+', label: 'Years Experience', icon: <Trophy className="w-8 h-8" />, duration: 1.8 },
 ];
 
 const testimonials = [
   {
     quote: "Tricone Digital transformed our online presence completely. Their team delivered beyond our expectations!",
-    author: "Sarah Johnson",
+    author: "Priya Sharma",
     role: "CEO, TechNova"
   },
   {
     quote: "The level of creativity and technical expertise is unmatched. Highly recommended for any digital solution.",
-    author: "Michael Chen",
+    author: "Rahul Kapoor",
     role: "Marketing Director, InnovateX"
-  },                                                                                                                                
+  },
   {
     quote: "Working with Tricone was a game-changer for our business. Their solutions are innovative and effective.",
-    author: "Emily Rodriguez",
+    author: "Ananya Patel",
     role: "Founder, GreenScape"
   }
 ];

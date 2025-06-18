@@ -9,6 +9,10 @@ interface ServiceDetailsProps {
 }
 
 const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const containerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -88,11 +92,12 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
     <div className="min-h-screen bg-background-dark text-white overflow-hidden">
       {/* Hero Section */}
       <motion.section 
+        id={service.id}
         ref={ref}
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 overflow-hidden"
+        className="relative pt-32 pb-20 px-6 md:px-12 lg:px-24 overflow-hidden scroll-mt-24"
       >
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
@@ -117,9 +122,14 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-            <button className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            <a 
+              href="https://wa.me/918474076850?text=I%20want%20to%20book%20a%20free%20consultation.%20I've%20came%20from%20your%20website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block"
+            >
               Book a Free Consultation
-            </button>
+            </a>
           </motion.div>
         </div>
       </motion.section>
@@ -201,13 +211,8 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
                     </div>
                     <p className="text-white/80 pl-20">{step.description}</p>
                   </div>
-                  <div className="lg:w-1/2">
-                    <div className="bg-background-blue/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full">
-                      <div className="aspect-video bg-white/5 rounded-lg flex items-center justify-center">
-                        <span className="text-white/30">Visualization for {step.title}</span>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Visualization space removed as per request */}
+                  <div className="lg:w-1/2"></div>
                 </motion.div>
               ))}
             </div>
@@ -253,7 +258,7 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <section id="cta" className="py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/5 to-neon-magenta/5"></div>
         <div className="relative max-w-4xl mx-auto text-center">
           <motion.div
@@ -267,7 +272,7 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
-                href={`https://wa.me/918474076850?text=Hi%20Tricone%20Team,%0A%0AMy%20name%20is%20[Your%20Name].%20I%20would%20like%20to%20schedule%20a%20free%20consultation%20about%20your%20${encodeURIComponent(service.title)}%20services.%0A%0APreferred%20time%20for%20call:%20[Your%20Preferred%20Date%20%26%20Time]%0A%0ALooking%20forward%20to%20hearing%20from%20you!`}
+                href="https://wa.me/918474076850?text=I%20want%20to%20book%20a%20free%20consultation.%20I've%20came%20from%20your%20website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover:opacity-90 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
@@ -285,3 +290,4 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
 };
 
 export default ServiceDetails;
+

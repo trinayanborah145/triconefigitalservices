@@ -16,7 +16,7 @@ const StatsSection: React.FC = () => {
     {
       title: 'Happy Clients',
       value: 8,
-      suffix: '+',
+      suffix: '',
       icon: Users,
       color: '#ff00ff',
       duration: 2.5

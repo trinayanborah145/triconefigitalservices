@@ -5,21 +5,21 @@ import { Star, Quote } from 'lucide-react';
 const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
-      name: 'Sarah Johnson',
+      name: 'Priya Sharma',
       role: 'CEO, TechStart Inc.',
       image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150',
       content: 'Tricone Digital has transformed our online presence completely. Their innovative approach and technical expertise have helped us achieve remarkable growth.',
       rating: 5,
     },
     {
-      name: 'Michael Chen',
+      name: 'Rahul Kapoor',
       role: 'Marketing Director, GrowthX',
       image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150',
       content: 'The automation solutions provided by Tricone have streamlined our marketing processes and significantly improved our lead generation results.',
       rating: 5,
     },
     {
-      name: 'Emily Rodriguez',
+      name: 'Ananya Patel',
       role: 'Founder, Digital First',
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150',
       content: 'Working with Tricone has been a game-changer for our business. Their attention to detail and commitment to excellence is unmatched.',
