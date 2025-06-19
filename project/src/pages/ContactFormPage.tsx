@@ -33,28 +33,41 @@ const ContactFormPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Basic form validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitError('Please fill in all required fields.');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
+      // Format the message with better spacing
+      let whatsappMessage = `*NEW CONTACT FORM SUBMISSION*%0A`;
+      whatsappMessage += `%0A`; // Extra line break
+      whatsappMessage += `*Name:*%0A${formData.name}%0A%0A`;
+      whatsappMessage += `*Email:*%0A${formData.email}%0A%0A`;
+      
+      if (formData.phone) {
+        whatsappMessage += `*Phone:*%0A${formData.phone}%0A%0A`;
       }
+      
+      if (formData.service) {
+        whatsappMessage += `*Interested In:*%0A${formData.service}%0A%0A`;
+      }
+      
+      whatsappMessage += `*Message:*%0A${formData.message}%0A%0A`;
+      whatsappMessage += `_I've come from your website_`;
 
-      // Show success message
-      alert(data.message || 'Thank you for your message! We will get back to you soon.');
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Open WhatsApp with the pre-filled message
+      window.open(`https://wa.me/918474076850?text=${encodedMessage}`, '_blank');
       
       // Reset form
       setFormData({
@@ -65,14 +78,12 @@ const ContactFormPage: React.FC = () => {
         message: ''
       });
       
-      // Navigate to home after a short delay
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
-    } catch (error: any) {
-      console.error('Error submitting form:', error);
-      setSubmitError(error?.message || 'Failed to submit form. Please try again.');
-    } finally {
+      // Show success message
+      alert('Thank you for your message! You will be redirected to WhatsApp.');
+      
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      setSubmitError('Failed to open WhatsApp. Please make sure you have WhatsApp installed or try again later.');
       setIsSubmitting(false);
     }
   };
@@ -208,7 +219,7 @@ const ContactFormPage: React.FC = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Sending...
+                        Opening WhatsApp...
                       </>
                     ) : (
                       <>
