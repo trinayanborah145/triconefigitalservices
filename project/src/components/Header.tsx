@@ -101,8 +101,8 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex items-center space-x-8">
           {[
             { name: 'Home', id: 'home' },
-            { name: 'Services', id: 'services' },
             { name: 'About', id: 'about' },
+            { name: 'Services', id: 'services' },
             { name: 'Stats', id: 'stats' },
             { name: 'Testimonials', id: 'testimonials' },
             { name: 'Contact', id: 'contact' }
@@ -162,8 +162,8 @@ const Header: React.FC = () => {
             <nav className="flex flex-col space-y-8">
               {[
                 { name: 'Home', id: 'home' },
-                { name: 'Services', id: 'services' },
                 { name: 'About', id: 'about' },
+                { name: 'Services', id: 'services' },
                 { name: 'Stats', id: 'stats' },
                 { name: 'Testimonials', id: 'testimonials' },
                 { name: 'Contact', id: 'contact' }

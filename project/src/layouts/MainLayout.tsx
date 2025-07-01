@@ -12,7 +12,7 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-background-dark relative overflow-hidden">
-      <CustomCursor />
+
       <ParticleBackground />
       <div className="relative z-10">
         <motion.div

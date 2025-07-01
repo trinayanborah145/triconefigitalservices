@@ -17,7 +17,7 @@ interface HomeLayoutProps {
 const HomeLayout: React.FC<HomeLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-background-dark relative overflow-hidden">
-      <CustomCursor />
+
       <ParticleBackground />
       <div className="relative z-10">
         <motion.div
