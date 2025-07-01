@@ -10,6 +10,8 @@ const ParticleBackground: React.FC = () => {
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    const isMobile = window.innerWidth < 768;
     
     // Initialize scene
     const scene = new THREE.Scene();
@@ -28,8 +30,9 @@ const ParticleBackground: React.FC = () => {
     // Initialize renderer
     const renderer = new THREE.WebGLRenderer({ 
       alpha: true,
-      antialias: true
+      antialias: !isMobile
     });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     containerRef.current.appendChild(renderer.domElement);
@@ -37,7 +40,7 @@ const ParticleBackground: React.FC = () => {
     
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 1000;
+    const particleCount = isMobile ? 300 : 1000;
     
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
