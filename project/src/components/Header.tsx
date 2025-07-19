@@ -117,16 +117,17 @@ const Header: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
             </Link>
           ))}
-          <Link 
-            to="#contact" 
+          <a 
+            href="https://wa.me/918474076850?text=Hello%2C%20I've%20come%20across%20your%20website%20and%20I'd%20like%20to%20discuss%20a%20potential%20project.%20Could%20we%20chat%20about%20your%20services%3F"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-gradient-to-r from-neon-cyan to-neon-magenta hover-effect text-white px-6 py-2 rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg inline-block"
-            onClick={() => scrollToSection('contact')}
           >
             <span className="flex items-center gap-2">
               <MessageSquare size={16} />
               Get in Touch
             </span>
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}

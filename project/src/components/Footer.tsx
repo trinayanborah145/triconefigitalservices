@@ -62,19 +62,27 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-display font-bold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-4">
               {[
-                { name: 'Home', href: '#home' },
-                { name: 'Services', href: '#services' },
-                { name: 'About Us', href: '#about' },
-                
+                { name: 'Home', href: '/', isRouterLink: true },
+                { name: 'Services', href: '/#services', isRouterLink: false },
+                { name: 'About Us', href: '/about', isRouterLink: true },
                 { name: 'Testimonials', href: '#testimonials' }
               ].map((item, index) => (
                 <li key={index}>
-                  <a 
-                    href={item.href}
-                    className="text-white/70 hover:text-neon-magenta hover-effect transition-colors duration-300 flex items-center"
-                  >
-                    <span className="mr-2">›</span> {item.name}
-                  </a>
+                  {item.isRouterLink ? (
+                    <Link 
+                      to={item.href}
+                      className="text-white/70 hover:text-neon-magenta hover-effect transition-colors duration-300 flex items-center"
+                    >
+                      <span className="mr-2">›</span> {item.name}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={item.href}
+                      className="text-white/70 hover:text-neon-magenta hover-effect transition-colors duration-300 flex items-center"
+                    >
+                      <span className="mr-2">›</span> {item.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -92,22 +100,30 @@ const Footer: React.FC = () => {
                 { name: 'Web Development', id: 'web-development' },
                 { name: 'CRM Automation', id: 'crm-automation' },
                 { name: 'Social Media Automation', id: 'social-media-automation' },
-                { name: 'End to End Business Automation', id: 'end-to-end-business-automation' }
+                { name: 'Business Automation', id: 'end-to-end-business-automation' }
               ].map((item, index) => (
                 <li key={index}>
-                  <a 
-                    href={`#${item.id}`}
+                  <Link 
+                    to={`/services/${item.id}`}
                     onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.getElementById(item.id);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      // If we're already on the services page, scroll to the section
+                      if (window.location.pathname.startsWith('/services/')) {
+                        e.preventDefault();
+                        // Navigate to the service page first
+                        window.location.href = `/services/${item.id}`;
+                        // Then scroll to the service details section after a short delay
+                        setTimeout(() => {
+                          const element = document.getElementById('service-details');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 100);
                       }
                     }}
-                    className="text-white/70 hover:text-neon-yellow hover-effect transition-colors duration-300 flex items-center cursor-pointer"
+                    className="text-white/70 hover:text-neon-yellow hover-effect transition-colors duration-300 flex items-center"
                   >
                     <span className="mr-2">›</span> {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

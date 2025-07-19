@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ParticleBackground from '../components/ParticleBackground';
+import CustomCursor from '../components/CustomCursor';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -11,9 +12,9 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-background-dark relative overflow-hidden">
-
+      <CustomCursor />
       <ParticleBackground />
-      <div className="relative z-10 cursor-default">
+      <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

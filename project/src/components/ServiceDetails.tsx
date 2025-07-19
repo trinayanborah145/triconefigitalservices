@@ -88,8 +88,36 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ service }) => {
   // Use features, steps, and tools from the service prop
   const { features = [], steps = [], tools: techStack = [] } = service;
 
+  // Scroll to service details section when component mounts
+  useEffect(() => {
+    const scrollToServiceDetails = () => {
+      const element = document.getElementById('service-details');
+      if (element) {
+        // First scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Then scroll to service details after a short delay
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    };
+
+    scrollToServiceDetails();
+    
+    // Also handle the case where the URL has a hash
+    const handleHashChange = () => {
+      if (window.location.hash === '#service-details') {
+        scrollToServiceDetails();
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background-dark text-white overflow-hidden">
+    <div id="service-details" className="min-h-screen bg-background-dark text-white overflow-hidden">
       {/* Hero Section */}
       <motion.section 
         id={service.id}

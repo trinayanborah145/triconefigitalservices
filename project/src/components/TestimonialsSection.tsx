@@ -5,17 +5,17 @@ import { Star, Quote } from 'lucide-react';
 const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
-      name: 'Priya Sharma',
-      role: 'CEO, TechStart Inc.',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150',
-      content: 'Tricone Digital has transformed our online presence completely. Their innovative approach and technical expertise have helped us achieve remarkable growth.',
+      name: 'Aayan Siddiqi',
+      role: 'Content Creator & Educator',
+      image: '/images/497751075_17883513012279224_2355383755071420757_n.jpg',
+      content: 'Working with Tricone Digital was a fantastic experience. They created a stunning website for my online course that perfectly captures my brand. The attention to detail and user experience is exceptional.',
       rating: 5,
     },
     {
-      name: 'Rahul Kapoor',
-      role: 'Marketing Director, GrowthX',
-      image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150',
-      content: 'The automation solutions provided by Tricone have streamlined our marketing processes and significantly improved our lead generation results.',
+      name: 'Kingkar Choudhury',
+      role: 'Managing Director, Room Editors',
+      image: '/images/470171225_1087660569807250_3287768468292283575_n.jpg',
+      content: 'Tricone Digital did an outstanding job designing our interior design brand website. They perfectly captured our vision and created a digital presence that truly represents the elegance and creativity of Room Editors. The website has significantly boosted our client engagement.',
       rating: 5,
     },
     {
