@@ -63,10 +63,17 @@ const AboutSection: React.FC = () => {
               Driving Digital <span className="text-neon-magenta magenta-glow">Innovation</span>
             </h3>
             <p className="text-white/80 mb-6">
-              Since our inception, we've been at the forefront of digital transformation, helping businesses adapt and thrive in the ever-evolving digital landscape. Our approach combines technical expertise with creative innovation to deliver solutions that make a real impact.
+            At Tricone, we’ve helped a growing number of businesses establish a strong online presence through clean, fast, and high-converting websites.
+
+Though we’re a young agency, we’ve quickly built a reputation for delivering quality work that drives real results. In a short period of time, we’ve earned the trust of clients from different industries — not just because of how our websites look, but because of how they perform.
             </p>
             <p className="text-white/80">
-              We believe in building long-term partnerships with our clients, understanding their unique challenges, and delivering tailored solutions that drive growth and success.
+            Our approach is simple:
+We listen, understand your business goals, and then design digital experiences that help you grow — whether that’s attracting more customers, improving your brand’s image, or creating a seamless user journey.
+
+At the core of everything we do is a commitment to creativity, clarity, and client success. Tricone isn’t just a service provider — we’re a digital growth partner for brands that are ready to level up.
+
+
             </p>
           </motion.div>
 

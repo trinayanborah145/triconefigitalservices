@@ -69,6 +69,10 @@ body {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow;
 }
 
+.text-gradient-reverse {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-magenta via-neon-cyan to-neon-yellow;
+}
+
 .neon-glow {
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.7),
                0 0 20px rgba(0, 255, 255, 0.5),

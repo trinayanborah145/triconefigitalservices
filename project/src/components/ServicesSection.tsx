@@ -1,7 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Users, Zap, Settings, BarChart, MessageSquare, Share2, Cpu, Bot, Database, Code, Layout, Monitor } from 'lucide-react';
+import { 
+  Zap, 
+  Settings, 
+  Code, 
+  Layout, 
+  Monitor, 
+  ShoppingBag, 
+  ShoppingCart, 
+  CreditCard, 
+  Truck, 
+  Shield, 
+  Share2, 
+  Cpu,
+  LayoutTemplate,
+  FileText,
+  BarChart2,
+  Search,
+  FileSearch,
+  LineChart,
+  User,
+  Image
+} from 'lucide-react';
 import ServiceCard from './ServiceCard';
 
 interface Service {
@@ -25,11 +46,6 @@ interface Service {
     name: string;
     category: string;
   }>;
-  caseStudy?: {
-    title: string;
-    description: string;
-    result: string;
-  };
 }
 
 const ServicesSection: React.FC = () => {
@@ -40,234 +56,98 @@ const ServicesSection: React.FC = () => {
 
   const services: Service[] = [
     {
-      id: 'crm-automation',
-      title: 'CRM Automation',
-      tagline: 'Transform Your Customer Relationships',
-      description: 'Automate your entire customer journey—from lead capture to follow-ups—with our intelligent CRM automation solutions. Save time, reduce errors, and close more deals with less effort.',
-      icon: Users,
-      color: '#ff00ff',
+      id: 'wordpress-development',
+      title: 'WordPress Website Development',
+      tagline: 'Professional, Fast, and SEO-Friendly WordPress Sites',
+      description: 'Get a custom WordPress website that is fast, secure, and optimized for search engines. Perfect for blogs, business sites, and online portfolios.',
+      icon: Layout,
+      color: '#21759b',
       features: [
         {
           icon: Zap,
-          title: 'Lead Management',
-          description: 'Automatically capture and qualify leads from multiple sources',
+          title: 'Custom Design',
+          description: 'Unique, responsive designs tailored to your brand',
         },
         {
           icon: Settings,
-          title: 'Workflow Automation',
-          description: 'Create custom workflows for sales and customer service',
+          title: 'Plugin Integration',
+          description: 'Essential plugins for functionality and security',
         },
         {
-          icon: BarChart,
-          title: 'Analytics Dashboard',
-          description: 'Track performance and get actionable insights',
+          icon: Monitor,
+          title: 'Responsive Layouts',
+          description: 'Looks great on all devices and screen sizes',
         },
-        {
-          icon: MessageSquare,
-          title: 'Customer Communication',
-          description: 'Automate emails, follow-ups, and notifications',
-        },
-      ],
-      steps: [
-        {
-          number: '01',
-          title: 'Discovery & Analysis',
-          description: 'We analyze your current sales process and identify automation opportunities.',
-        },
-        {
-          number: '02',
-          title: 'CRM Setup & Integration',
-          description: 'Configure your CRM and connect it with your existing tools.',
-        },
-        {
-          number: '03',
-          title: 'Workflow Design',
-          description: 'Create custom automation workflows tailored to your business needs.',
-        },
-        {
-          number: '04',
-          title: 'Deployment & Training',
-          description: 'Launch your automated CRM and train your team for success.',
-        },
-      ],
-      tools: [
-        { name: 'HubSpot', category: 'CRM' },
-        { name: 'Zapier', category: 'Automation' },
-        { name: 'Pipedrive', category: 'Sales' },
-        { name: 'ActiveCampaign', category: 'Marketing' },
-        { name: 'Slack', category: 'Communication' },
-        { name: 'Google Workspace', category: 'Productivity' },
-      ],
-      caseStudy: {
-        title: 'Boosting Sales with Automated Lead Nurturing',
-        description: 'Helped a B2B company automate their lead nurturing process, resulting in 3x more qualified leads and 45% faster sales cycle.',
-        result: 'Increased conversion rate by 60% and reduced manual work by 30 hours per week.'
-      },
-    },
-    {
-      id: 'social-media-automation',
-      title: 'Social Media Automation',
-      tagline: 'Streamline Your Social Presence',
-      description: 'Automate your social media marketing with our comprehensive solutions. Schedule posts, engage with your audience, and analyze performance across all platforms from one dashboard.',
-      icon: Share2,
-      color: '#00b4d8',
-      features: [
         {
           icon: Share2,
-          title: 'Content Scheduling',
-          description: 'Plan and schedule posts across all your social channels',
-        },
-        {
-          icon: MessageSquare,
-          title: 'Engagement Tools',
-          description: 'Automate responses and engage with your audience',
-        },
-        {
-          icon: BarChart,
-          title: 'Performance Analytics',
-          description: 'Track engagement and measure ROI with detailed reports',
-        },
-        {
-          icon: Users,
-          title: 'Audience Insights',
-          description: 'Understand your audience and optimize your strategy',
+          title: 'SEO Ready',
+          description: 'Optimized for search engines from the start',
         },
       ],
       steps: [
         {
           number: '01',
-          title: 'Strategy Development',
-          description: 'Define your social media goals and target audience',
+          title: 'Planning & Strategy',
+          description: 'We discuss your goals and create a sitemap',
         },
         {
           number: '02',
-          title: 'Content Planning',
-          description: 'Create a content calendar and schedule posts',
+          title: 'Design & Development',
+          description: 'Create and develop your custom WordPress theme',
         },
         {
           number: '03',
-          title: 'Automation Setup',
-          description: 'Configure automated posting and engagement rules',
+          title: 'Content & Testing',
+          description: 'Add content and test all functionality',
         },
         {
           number: '04',
-          title: 'Performance Optimization',
-          description: 'Analyze results and refine your strategy',
+          title: 'Launch & Support',
+          description: 'Go live with ongoing support and maintenance',
         },
       ],
       tools: [
-        { name: 'Buffer', category: 'Scheduling' },
-        { name: 'Hootsuite', category: 'Management' },
-        { name: 'Canva', category: 'Design' },
-        { name: 'Google Analytics', category: 'Analytics' },
-        { name: 'Sprout Social', category: 'Engagement' },
-        { name: 'Later', category: 'Visual Planning' },
+        { name: 'WordPress', category: 'CMS' },
+        { name: 'Elementor', category: 'Page Builder' },
+        { name: 'WooCommerce', category: 'E-commerce' },
+        { name: 'Yoast SEO', category: 'SEO' },
+        { name: 'WP Rocket', category: 'Performance' },
       ],
-      caseStudy: {
-        title: 'Social Media Growth for E-commerce',
-        description: 'Helped an e-commerce brand increase social media engagement by 150% and drive 3x more website traffic through automation.',
-        result: 'Achieved 200% ROI within 3 months of implementation.'
-      },
     },
     {
-      id: 'business-automation',
-      title: 'End to End Business Automation',
-      tagline: 'Transform Your Entire Operation',
-      description: 'Streamline your entire business with our comprehensive automation solutions. From lead generation to customer support, we automate repetitive tasks so you can focus on growth.',
-      icon: Cpu,
-      color: '#7209b7',
-      features: [
-        {
-          icon: Zap,
-          title: 'Process Automation',
-          description: 'Automate repetitive tasks across departments',
-        },
-        {
-          icon: Database,
-          title: 'Data Integration',
-          description: 'Connect all your business systems and data sources',
-        },
-        {
-          icon: Bot,
-          title: 'AI-Powered Automation',
-          description: 'Leverage AI for intelligent process automation',
-        },
-        {
-          icon: Settings,
-          title: 'Custom Workflows',
-          description: 'Build tailored automation for your unique business needs',
-        },
-      ],
-      steps: [
-        {
-          number: '01',
-          title: 'Business Process Audit',
-          description: 'Identify automation opportunities across your organization',
-        },
-        {
-          number: '02',
-          title: 'Solution Design',
-          description: 'Create a customized automation roadmap',
-        },
-        {
-          number: '03',
-          title: 'Implementation',
-          description: 'Deploy and integrate automation solutions',
-        },
-        {
-          number: '04',
-          title: 'Optimization',
-          description: 'Continuously monitor and improve automation',
-        },
-      ],
-      tools: [
-        { name: 'Zapier', category: 'Integration' },
-        { name: 'Make.com', category: 'Automation' },
-        { name: 'Airtable', category: 'Database' },
-        { name: 'Notion', category: 'Workspace' },
-        { name: 'Slack', category: 'Communication' },
-        { name: 'Google Workspace', category: 'Productivity' },
-      ],
-      caseStudy: {
-        title: 'End-to-End Automation for Scaling Business',
-        description: 'Implemented comprehensive automation for a growing startup, reducing operational costs by 40% and enabling 3x business growth without additional hires.',
-        result: 'Achieved 300% ROI within 6 months through efficiency gains.'
-      },
-    },
-    {
-      id: 'web-development',
-      title: 'Web Development',
-      tagline: 'Build Stunning Digital Experiences',
-      description: 'Create fast, responsive, and user-friendly websites and web applications with the latest technologies. From simple landing pages to complex web apps, we deliver exceptional digital experiences.',
-      icon: Monitor,
-      color: '#4361ee',
+      id: 'custom-coded-website',
+      title: 'Custom Coded Website',
+      tagline: 'Bespoke Web Solutions with Modern Technologies',
+      description: 'Hand-coded websites using HTML/CSS/JS or modern frameworks like React/Next.js for maximum performance and customization.',
+      icon: Code,
+      color: '#61dafb',
       features: [
         {
           icon: Code,
-          title: 'Custom Development',
-          description: 'Tailored solutions built to your exact specifications',
+          title: 'Clean Code',
+          description: 'Semantic, maintainable, and well-documented code',
         },
         {
-          icon: Layout,
-          title: 'Responsive Design',
-          description: 'Perfectly optimized for all devices and screen sizes',
+          icon: Cpu,
+          title: 'Modern Stack',
+          description: 'Built with the latest web technologies',
         },
         {
           icon: Zap,
           title: 'Fast Performance',
-          description: 'Lightning-fast load times and smooth interactions',
+          description: 'Optimized for speed and efficiency',
         },
         {
-          icon: Settings,
-          title: 'SEO Optimized',
-          description: 'Built with search engine visibility in mind',
+          icon: Share2,
+          title: 'Cross-Browser',
+          description: 'Consistent experience across all browsers',
         },
       ],
       steps: [
         {
           number: '01',
-          title: 'Planning & Discovery',
-          description: 'Understand your goals and requirements',
+          title: 'Requirement Analysis',
+          description: 'Understand your project needs and goals',
         },
         {
           number: '02',
@@ -277,28 +157,253 @@ const ServicesSection: React.FC = () => {
         {
           number: '03',
           title: 'Development',
-          description: 'Build the website with clean, maintainable code',
+          description: 'Code the website with best practices',
         },
         {
           number: '04',
-          title: 'Testing & Launch',
-          description: 'Thorough testing and smooth deployment',
+          title: 'Testing & Deployment',
+          description: 'Thorough testing and smooth launch',
         },
       ],
       tools: [
-        { name: 'React', category: 'Frontend' },
-        { name: 'Next.js', category: 'Framework' },
+        { name: 'React/Next.js', category: 'Framework' },
+        { name: 'TypeScript', category: 'Language' },
         { name: 'Tailwind CSS', category: 'Styling' },
-        { name: 'Node.js', category: 'Backend' },
-        { name: 'MongoDB', category: 'Database' },
-        { name: 'Vercel', category: 'Hosting' },
+        { name: 'Git', category: 'Version Control' },
       ],
-      caseStudy: {
-        title: 'E-commerce Platform Development',
-        description: 'Developed a custom e-commerce solution that increased conversion rates by 75% and reduced page load times by 60%.',
-        result: 'Achieved 3x more sales within the first quarter post-launch.'
-      },
     },
+    {
+      id: 'ecommerce-website',
+      title: 'E-commerce Website',
+      tagline: 'Sell Products Online with Ease',
+      description: 'Complete e-commerce solutions with secure payment gateways, inventory management, and mobile-responsive design.',
+      icon: ShoppingBag,
+      color: '#7c3aed',
+      features: [
+        {
+          icon: ShoppingCart,
+          title: 'Product Management',
+          description: 'Easy product catalog management',
+        },
+        {
+          icon: CreditCard,
+          title: 'Secure Payments',
+          description: 'Multiple payment gateway integration',
+        },
+        {
+          icon: Truck,
+          title: 'Shipping & Tax',
+          description: 'Automated shipping and tax calculations',
+        },
+        {
+          icon: Shield,
+          title: 'Security',
+          description: 'SSL and PCI compliance',
+        },
+      ],
+      steps: [
+        {
+          number: '01',
+          title: 'Store Setup',
+          description: 'Configure products and payment methods',
+        },
+        {
+          number: '02',
+          title: 'Design & Development',
+          description: 'Create a custom storefront',
+        },
+        {
+          number: '03',
+          title: 'Testing',
+          description: 'Thorough testing of all features',
+        },
+        {
+          number: '04',
+          title: 'Launch',
+          description: 'Go live with your online store',
+        },
+      ],
+      tools: [
+        { name: 'WooCommerce', category: 'E-commerce' },
+        { name: 'Shopify', category: 'Platform' },
+        { name: 'Stripe', category: 'Payments' },
+        { name: 'Mailchimp', category: 'Email Marketing' },
+      ]
+    },
+    {
+      id: 'landing-page-funnels',
+      title: 'Landing Page Design & Funnels',
+      tagline: 'High-Converting Landing Pages & Sales Funnels',
+      description: 'Professionally designed landing pages and sales funnels that convert visitors into customers. Optimized for maximum conversions and user engagement.',
+      icon: LayoutTemplate,
+      color: '#10b981',
+      features: [
+        {
+          icon: FileSearch,
+          title: 'Conversion Optimization',
+          description: 'Designed to maximize conversions and engagement',
+        },
+        {
+          icon: Share2,
+          title: 'Lead Capture',
+          description: 'Effective forms and CTAs to capture leads',
+        },
+        {
+          icon: BarChart2,
+          title: 'A/B Testing',
+          description: 'Test different versions to optimize performance',
+        },
+        {
+          icon: LineChart,
+          title: 'Analytics',
+          description: 'Track performance and user behavior',
+        },
+      ],
+      steps: [
+        {
+          number: '01',
+          title: 'Strategy & Planning',
+          description: 'Define goals and target audience',
+        },
+        {
+          number: '02',
+          title: 'Design & Copywriting',
+          description: 'Create compelling visuals and copy',
+        },
+        {
+          number: '03',
+          title: 'Development',
+          description: 'Build and optimize the landing page',
+        },
+        {
+          number: '04',
+          title: 'Launch & Optimize',
+          description: 'Go live and continuously improve',
+        },
+      ],
+      tools: [
+        { name: 'Unbounce', category: 'Landing Page Builder' },
+        { name: 'Leadpages', category: 'Landing Pages' },
+        { name: 'ClickFunnels', category: 'Sales Funnels' },
+        { name: 'Google Optimize', category: 'A/B Testing' },
+      ]
+    },
+    {
+      id: 'portfolio-resume',
+      title: 'Portfolio/Resume Websites',
+      tagline: 'Showcase Your Work & Professional Journey',
+      description: 'Elegant and professional portfolio and resume websites that highlight your skills, experience, and achievements in a visually appealing way.',
+      icon: FileText,
+      color: '#f59e0b',
+      features: [
+        {
+          icon: LayoutTemplate,
+          title: 'Custom Design',
+          description: 'Unique design that reflects your personal brand',
+        },
+        {
+          icon: User,
+          title: 'Professional Profile',
+          description: 'Showcase your skills and experience',
+        },
+        {
+          icon: Image,
+          title: 'Portfolio Gallery',
+          description: 'Display your work with beautiful galleries',
+        },
+        {
+          icon: Share2,
+          title: 'Social Integration',
+          description: 'Connect your social media profiles',
+        },
+      ],
+      steps: [
+        {
+          number: '01',
+          title: 'Content Strategy',
+          description: 'Plan your content and structure',
+        },
+        {
+          number: '02',
+          title: 'Design & Development',
+          description: 'Create your custom portfolio site',
+        },
+        {
+          number: '03',
+          title: 'Content Integration',
+          description: 'Add your work samples and resume',
+        },
+        {
+          number: '04',
+          title: 'Launch & Promote',
+          description: 'Go live and share with your network',
+        },
+      ],
+      tools: [
+        { name: 'React', category: 'Framework' },
+        { name: 'Next.js', category: 'SSG' },
+        { name: 'Tailwind CSS', category: 'Styling' },
+        { name: 'Framer Motion', category: 'Animations' },
+      ]
+    },
+    {
+      id: 'seo-analytics',
+      title: 'Basic SEO Setup & Analytics',
+      tagline: 'Improve Your Online Visibility',
+      description: 'Essential SEO setup and analytics to help your website rank higher in search results and understand your audience better.',
+      icon: Search,
+      color: '#3b82f6',
+      features: [
+        {
+          icon: Search,
+          title: 'Keyword Research',
+          description: 'Find the right keywords to target',
+        },
+        {
+          icon: BarChart2,
+          title: 'Performance Tracking',
+          description: 'Monitor your website\'s performance',
+        },
+        {
+          icon: Zap,
+          title: 'Technical SEO',
+          description: 'Optimize your site\'s technical aspects',
+        },
+        {
+          icon: LineChart,
+          title: 'Analytics',
+          description: 'Understand your audience and traffic',
+        },
+      ],
+      steps: [
+        {
+          number: '01',
+          title: 'SEO Audit',
+          description: 'Analyze your current SEO status',
+        },
+        {
+          number: '02',
+          title: 'On-Page Optimization',
+          description: 'Optimize content and meta tags',
+        },
+        {
+          number: '03',
+          title: 'Analytics Setup',
+          description: 'Configure tracking and reporting',
+        },
+        {
+          number: '04',
+          title: 'Ongoing Support',
+          description: 'Monitor and improve over time',
+        },
+      ],
+      tools: [
+        { name: 'Google Analytics', category: 'Analytics' },
+        { name: 'Google Search Console', category: 'SEO' },
+        { name: 'Screaming Frog', category: 'SEO Audit' },
+        { name: 'Ahrefs', category: 'Backlink Analysis' },
+      ]
+    }
   ];
 
   const containerVariants = {

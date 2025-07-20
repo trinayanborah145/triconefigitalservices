@@ -8,6 +8,14 @@ const HeroSection: React.FC = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    // Show content after initial animation
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (!containerRef.current) return;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -32,20 +40,14 @@ const HeroSection: React.FC = () => {
     element.addEventListener('mousemove', handleMouseMove);
     element.addEventListener('mouseleave', handleMouseLeave);
 
-    // Show main content after animation (3.5 seconds to account for the full animation + transition)
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 3500);
-
     return () => {
       element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
-      clearTimeout(timer);
     };
   }, []);
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -95,28 +97,13 @@ const HeroSection: React.FC = () => {
             animate="visible"
             className="text-center"
           >
-            <motion.div variants={itemVariants} className="mb-4">
-              <span className="inline-block px-6 py-2 rounded-full border border-neon-cyan/30 text-neon-cyan font-medium text-sm md:text-base mb-6">
-                WELCOME TO THE FUTURE OF DIGITAL SERVICES
-              </span>
-            </motion.div>
-
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-10 leading-tight"
             >
-              <span className="block text-gradient neon-glow">Transforming Your</span>
-              <span className="block">Digital Future with <span className="text-neon-magenta magenta-glow">
-                Tricone</span></span>
+              <span className="block text-gradient">Your Website Should Sell While You Sleep</span>
+              <span className="block text-2xl md:text-4xl text-gradient-reverse mt-6">We Make That Happen</span>
             </motion.h1>
-
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10"
-            >
-              We create cutting-edge digital solutions that empower businesses to thrive in the modern era. 
-              Our advanced technologies and creative approach set new standards in the digital landscape.
-            </motion.p>
 
             <motion.div 
               variants={itemVariants}
