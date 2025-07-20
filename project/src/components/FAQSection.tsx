@@ -45,7 +45,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: 'How much does a website cost?',
-      answer: 'Website costs vary based on complexity, features, and specific requirements. Simple websites start from $2,000, while complex e-commerce or custom solutions can range from $5,000-$15,000+. We provide detailed quotes after understanding your specific needs.'
+      answer: 'Website costs vary based on complexity, features, and specific requirements. Simple websites start from ₹3,000, while complex e-commerce or custom solutions can range from ₹5000-₹10000+. We provide detailed quotes after understanding your specific needs.'
     }
   ];
 
